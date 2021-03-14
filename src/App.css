@@ -1,38 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
+  /* overflow: hidden; */
+}
+
 .App {
-  text-align: center;
+  flex-grow: 1;
+  /* transition: 0.4s ease; */
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper {
+  max-height: 100vh;
+  /* overflow: hidden; */
   display: flex;
-  flex-direction: column;
+}
+
+.library-heading {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  padding: 25px 25px 15px 25px;
+}
+.library {
+  /*! position absolute is used to make lib on top */
+  position: absolute;
+  background: #fff;
+  width: 250px;
+  box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.5);
+  transition: 0.6s ease;
+  z-index: 12;
+  max-height: 100vh;
+  transform: translate(-300px);
+  transform-origin: left;
+  overflow: hidden;
+  /* max-height: 100vh; */
+}
+
+/*! the show back class is used for lib to show back */
+.show-back {
+  transform: translate(0);
+}
+
+.song-list {
+  list-style: none;
+  padding: 15px 5px 15px 20px;
+  max-height: 100vh;
+
+  overflow-y: scroll;
+}
+
+.song {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  transition: 0.3s ease;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.song:last-child {
+  margin-bottom: 80px;
+}
+
+.song:hover {
+  background: lightblue;
+  /* border: 1px solid rgba(0, 0, 255, 0.39); */
+}
+
+.song > img {
+  width: 60px;
+  padding: 10px 0 10px 10px;
+}
+
+.song-info {
+  margin-left: 20px;
+}
+
+.song-name {
+  font-weight: 500;
+}
+
+.singer-name {
+  opacity: 0.5;
+  font-size: small;
+}
+nav {
+  display: flex;
+  padding: 30px;
+  justify-content: space-around;
+  text-transform: uppercase;
+}
+
+.library-btn {
+  padding: 5px 15px;
+  background: #fff;
+  border: 2px solid black;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.library-btn:hover {
+  background: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.img-section {
+  height: 300px;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
+.cover-img {
+  width: 300px;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.info-section {
+  text-align: center;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.singer {
+  margin-top: 10px;
+  color: rgba(128, 128, 128, 0.5);
+}
+
+.progress-bar {
+  position: relative;
+  cursor: pointer;
+  margin-top: 20px;
+  height: 10px;
+  width: 50%;
+  border-radius: 10px;
+  background: rgba(128, 128, 128, 0.2);
+}
+.start,
+.end {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.start {
+  left: -40px;
+}
+.end {
+  right: -40px;
+}
+
+.btn-section {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-wrap {
+  margin-top: 20px;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.play-btn,
+.previous-btn,
+.next-btn {
+  transition: 0.4s ease;
+  border-radius: 50%;
+}
+
+.previous-btn,
+.next-btn {
+  padding: 10px;
+}
+.play-btn:hover,
+.previous-btn:hover,
+.next-btn:hover {
+  background: black;
+  color: white;
+}
+
+.progress {
+  position: absolute;
+  height: 100%;
+  border-radius: 20px;
+  background: black;
+}
+
+/* spin */
+
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+
+.rotate {
+  animation: spin 20s linear infinite;
+}
+
+/* 
+scrollbar-css */
+
+::-webkit-scrollbar {
+  background-color: rgba(255, 255, 255, 1);
+   width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 1);
 }
